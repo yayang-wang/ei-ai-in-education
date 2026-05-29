@@ -66,6 +66,13 @@ outputs/tables/
 
 These outputs include model performance, confusion matrix, explainability figures, prediction results, and fairness tables.
 
+The first completed experimental run is summarized in:
+
+```text
+RESULTS.md
+results/
+```
+
 ## Suggested Paper Title
 
 **Design and Empirical Evaluation of an Explainable and Fair Online Learning Risk Early Warning System**
