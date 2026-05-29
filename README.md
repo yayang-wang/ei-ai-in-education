@@ -73,6 +73,14 @@ RESULTS.md
 results/
 ```
 
+The extended EI source-journal experiment is summarized in:
+
+```text
+SOURCE_JOURNAL_RESULTS.md
+results/source_journal/
+scripts/run_source_journal_experiments.py
+```
+
 ## Suggested Paper Title
 
 **Design and Empirical Evaluation of an Explainable and Fair Online Learning Risk Early Warning System**
