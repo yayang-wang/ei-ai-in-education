@@ -1,0 +1,21 @@
+# Dataset files
+data/
+
+# Generated outputs
+outputs/
+
+# Python/Jupyter cache
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+
+# Local environment
+.venv/
+venv/
+env/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
