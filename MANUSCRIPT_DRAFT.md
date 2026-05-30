@@ -12,17 +12,29 @@ Online and blended learning platforms generate large volumes of behavioral trace
 
 Despite their potential value, AI-based early warning systems also raise ethical and practical concerns. First, many machine learning models operate as black boxes, making it difficult for teachers to understand why a student is classified as high risk. A prediction without explanation may reduce teacher trust and may also lead to inappropriate interventions. Second, prediction systems may perform unevenly across student groups. For example, a model may detect risk more effectively for one age group than another, or it may generate more false alerts for students from specific regions or socioeconomic backgrounds. Such uneven behavior is especially sensitive in educational contexts because model outputs may influence teacher attention, institutional resources, and student self-perception.
 
+The engineering challenge is therefore not simply to build a more accurate classifier. A deployable educational AI system must connect prediction, explanation, fairness auditing, and intervention governance into a reproducible workflow. Many existing studies report model performance, but fewer studies examine how early warning time windows, feature sources, explanation evidence, and group fairness metrics jointly shape the responsible use of educational predictions. This gap limits the practical value of learning risk prediction systems in real teaching scenarios.
+
 Therefore, responsible AI in education requires more than maximizing predictive accuracy. A practical early warning system should be accurate, interpretable, and fair enough to support human decision-making. It should also avoid using risk predictions as automatic labels or punitive decisions. Instead, model outputs should help teachers understand learning signals, review possible risk factors, and provide supportive interventions.
 
 This study proposes and evaluates an explainable and fairness-aware learning risk early warning framework for online education. The framework is designed around four components: early learning feature construction, machine learning-based risk prediction, explainability analysis, and fairness auditing with mitigation. The empirical study uses the Open University Learning Analytics Dataset (OULAD), a public dataset containing student demographics, course registration information, online learning activity, assessment records, and final course outcomes.
 
+The research questions are:
+
+**RQ1:** How does early warning performance change across different prediction windows in an online learning environment?
+
+**RQ2:** How do different feature groups, including behavior, assessment, registration, and background information, contribute to learning risk prediction?
+
+**RQ3:** Do educational risk prediction models produce unequal error patterns across student groups, and can transparent post-processing reduce these gaps?
+
+**RQ4:** How can prediction, explainability, and fairness auditing be integrated into a teacher-facing human-in-the-loop early warning workflow?
+
 The main contributions of this study are as follows:
 
-1. An explainable and fairness-aware early warning framework is proposed for online learning risk prediction.
-2. A multi-window early warning experiment is conducted at 7, 14, 28, and 56 days to evaluate temporal prediction performance.
-3. Multiple machine learning models are compared to establish robust baselines.
-4. Feature ablation is performed to examine the contribution of behavioral, assessment, and full feature sets.
-5. Group-level fairness auditing and threshold-based fairness mitigation are applied to assess and reduce disparities across student groups.
+1. The study proposes an engineering-oriented responsible AI framework for online learning risk early warning, integrating prediction, explanation, fairness auditing, mitigation, and human-in-the-loop intervention.
+2. The study conducts a multi-window early warning experiment at 7, 14, 28, and 56 days, showing how the value of learning behavior changes over time.
+3. The study compares five machine learning models and performs feature ablation to distinguish the roles of behavioral, assessment, registration, and contextual features.
+4. The study evaluates group-level fairness using demographic parity, equal opportunity, and false positive rate gaps across gender, age band, disability, socioeconomic band, and region.
+5. The study applies a transparent group-threshold mitigation method and discusses its ethical boundary conditions for teacher-supported educational decision-making.
 
 ## 2. Related Work
 
@@ -30,19 +42,19 @@ The main contributions of this study are as follows:
 
 Learning risk prediction is a central task in learning analytics and educational data mining. Existing studies commonly use student demographic information, online learning behavior, assessment records, and historical academic data to predict outcomes such as failure, dropout, or low performance. Traditional models include Logistic Regression, Decision Trees, Random Forests, and Support Vector Machines, while more recent work has explored gradient boosting methods, neural networks, and sequence-based models.
 
-However, many studies focus primarily on predictive performance. In practical educational settings, accuracy alone is insufficient because teachers must understand prediction reasons and decide what kind of intervention is appropriate. This motivates the integration of explainable AI methods into learning risk prediction systems.
+However, many studies focus primarily on predictive performance. In practical educational settings, accuracy alone is insufficient because teachers must understand prediction reasons and decide what kind of intervention is appropriate. A model that improves AUC but cannot support interpretable intervention may have limited educational value. This motivates the integration of explainable AI methods into learning risk prediction systems.
 
 ### 2.2 Explainable AI in Education
 
 Explainable AI aims to make model behavior understandable to human users. In education, explainability can help teachers identify which learning behaviors are most associated with risk, such as low platform engagement, few active learning days, poor assessment scores, or late submissions. Post hoc explanation methods such as SHAP and permutation importance are commonly used to estimate feature contributions after a model has been trained.
 
-For early warning systems, explainability has two roles. At the global level, it helps researchers and institutions understand what factors drive risk predictions across the dataset. At the local level, it can help teachers interpret why an individual student is flagged as high risk. This study focuses mainly on global explainability as a first step toward a teacher-facing decision support system.
+For early warning systems, explainability has two roles. At the global level, it helps researchers and institutions understand what factors drive risk predictions across the dataset. At the local level, it can help teachers interpret why an individual student is flagged as high risk. This study focuses mainly on global explainability as a first step toward a teacher-facing decision support system, and positions explanation as part of an intervention workflow rather than as a standalone visualization.
 
 ### 2.3 Fairness and Ethics in AI Education Systems
 
 Fairness is increasingly important in AI-supported education because educational predictions may influence access to support, teacher attention, and institutional decision-making. A model that performs well overall may still produce unequal outcomes across demographic or socioeconomic groups. Common fairness metrics include demographic parity gap, equal opportunity gap, and false positive rate gap.
 
-In learning risk prediction, fairness is especially complex. A higher predicted risk rate for a group may reflect real differences in learning outcomes, model bias, or both. Therefore, fairness auditing should not be treated as a purely technical procedure. Instead, it should be combined with human review, contextual interpretation, and supportive intervention design.
+In learning risk prediction, fairness is especially complex. A higher predicted risk rate for a group may reflect real differences in learning outcomes, model bias, or both. Therefore, fairness auditing should not be treated as a purely technical procedure. Instead, it should be combined with human review, contextual interpretation, and supportive intervention design. This study addresses this issue by linking fairness metrics to a transparent mitigation strategy and by explicitly discussing how model outputs should be governed in educational practice.
 
 ## 3. Proposed Framework
 
@@ -109,6 +121,8 @@ The source-journal experiment includes three major analyses:
 2. **Feature ablation:** Random Forest is used to compare behavior-only, assessment-only, behavior + assessment, and full feature settings at day 28.
 3. **Fairness mitigation:** the best day-28 model is used to compare global thresholding and group-specific thresholding across sensitive attributes.
 
+To strengthen the engineering validity of the study, the experimental design follows four principles. First, the temporal design evaluates whether the system can provide useful signals early enough for intervention. Second, the model comparison avoids relying on a single algorithm and provides linear, ensemble, boosting, and neural baselines. Third, the feature ablation study tests whether the proposed feature integration strategy is necessary. Fourth, the fairness experiment evaluates not only overall accuracy but also group-level error patterns that may affect the equitable allocation of teacher attention and institutional support.
+
 ## 6. Results
 
 ### 6.1 Multi-Window Model Comparison
@@ -166,7 +180,13 @@ Fairness auditing shows that group-level performance gaps exist under a global d
 
 The gender equal opportunity gap decreases from 0.0415 to 0.0040, and the regional equal opportunity gap decreases from 0.1794 to 0.0782. These results show that fairness-aware post-processing can reduce unequal detection rates while maintaining a similar level of predictive performance.
 
-## 7. Ethical Discussion
+### 6.5 Engineering Interpretation
+
+The experimental results support the proposed framework in three ways. First, the multi-window results show that day-28 is a practical intervention point: it provides substantially stronger prediction than day 7 or day 14 while still leaving time for teachers to intervene before final outcomes are determined. Second, the ablation results show that learning risk is multidimensional. Behavior-only signals capture engagement, assessment-only signals capture academic performance, and the full feature set better captures the interaction among engagement, performance, registration, and background context. Third, the fairness results show that a high-performing model can still produce unequal group-level outcomes, which means that fairness auditing should be part of the deployment pipeline rather than a separate afterthought.
+
+From an engineering perspective, these findings suggest that a responsible educational early warning system should be evaluated as a pipeline. The pipeline must answer four questions before deployment: whether the model predicts risk accurately, whether teachers can understand the major risk signals, whether prediction errors are unevenly distributed across student groups, and whether mitigation can reduce problematic gaps without removing human judgment from the intervention process.
+
+## 7. Discussion and Ethical Implications
 
 The results highlight an important ethical point: an educational AI system with good overall AUC may still behave differently across student groups. Therefore, fairness auditing should be a standard part of educational early warning system design. However, fairness mitigation must be applied carefully. Group-specific thresholds may reduce certain statistical gaps, but they also require institutional justification, transparency, and ongoing monitoring.
 
@@ -174,15 +194,50 @@ In practice, the system should be used as a teacher-support tool rather than an 
 
 The proposed framework therefore follows a human-in-the-loop principle. AI provides evidence, but teachers remain responsible for interpretation and action. This design can reduce the risk of over-reliance on automated predictions and help align AI-supported education with transparency, fairness, and student support.
 
+The ethical contribution of this study is not limited to identifying fairness gaps. It also proposes a practical governance logic for educational AI. Prediction should be treated as a signal for support, explanation should be used to make the signal inspectable, fairness auditing should be used to monitor uneven consequences, and mitigation should be applied only with institutional accountability. This view prevents the system from becoming a purely automated ranking mechanism and keeps the final intervention decision within a professional educational context.
+
+There are also limitations. First, OULAD is a public historical dataset, so the results should be validated on more recent institutional datasets before real deployment. Second, this study focuses mainly on global explainability; future work should develop local student-level explanations that teachers can inspect case by case. Third, group-specific thresholding is transparent but may not solve all forms of educational unfairness, especially when disparities are caused by structural learning conditions rather than model behavior. Fourth, future studies should include teacher-facing usability evaluation to examine whether explanation and fairness information actually improves intervention decisions.
+
 ## 8. Conclusion
 
 This study proposed an explainable and fairness-aware online learning risk early warning framework and evaluated it using the OULAD dataset. The experiment compared five machine learning models across four early warning windows, performed feature ablation, and applied fairness auditing and threshold-based mitigation. The results show that prediction performance improves from day 7 to day 56, with HistGradientBoosting achieving an AUC of 0.8463 at day 28 and 0.8873 at day 56. Feature ablation confirms that integrating multiple feature groups improves predictive performance. Fairness analysis further shows that group-level disparities exist and can be reduced through post-processing thresholds.
 
 The findings suggest that responsible AI-based early warning systems should combine prediction, explanation, fairness auditing, and human intervention. Future work will further develop local student-level explanations, evaluate teacher trust through user studies, and test the framework across additional educational datasets.
 
-## References To Add
+## References
 
-- OULAD dataset paper: Kuzilek, J., Hlosta, M., & Zdrahal, Z. (2017). Open University Learning Analytics dataset. Scientific Data, 4, 170171.
-- Learning analytics and educational data mining references.
-- Explainable AI references, especially SHAP.
-- Fairness in machine learning and fairness in education references.
+### Strict Submission Working References
+
+The following working list is restricted to recent high-impact journals that are plausible
+SCI/SSCI JCR Q1 or equivalent high-quartile venues for this topic. Final submission still needs
+year-specific verification in Web of Science/JCR or the CAS journal ranking system.
+
+1. Baneres, D., Rodriguez-Gonzalez, M. E., Guerrero-Roldan, A.-E., & Cortadas, P. (2023). An early warning system to identify and intervene online dropout learners. *International Journal of Educational Technology in Higher Education, 20*, Article 3. https://doi.org/10.1186/s41239-022-00371-5
+
+2. Crompton, H., & Burke, D. (2023). Artificial intelligence in higher education: The state of the field. *International Journal of Educational Technology in Higher Education, 20*, Article 22. https://doi.org/10.1186/s41239-023-00392-8
+
+3. Bond, M., Khosravi, H., De Laat, M., Bergdahl, N., Negrea, V., Oxley, E., Pham, P., Chong, S. W., & Siemens, G. (2024). A meta systematic review of artificial intelligence in higher education: A call for increased ethics, collaboration, and rigour. *International Journal of Educational Technology in Higher Education, 21*, Article 4. https://doi.org/10.1186/s41239-023-00436-z
+
+4. Mah, D.-K., & Gross, N. (2024). Artificial intelligence in higher education: Exploring faculty use, self-efficacy, distinct profiles, and professional development needs. *International Journal of Educational Technology in Higher Education, 21*, Article 58. https://doi.org/10.1186/s41239-024-00490-1
+
+5. Kamali, J., Alpat, M. F., & Bozkurt, A. (2024). AI ethics as a complex and multifaceted challenge: Decoding educators' AI ethics alignment through the lens of activity theory. *International Journal of Educational Technology in Higher Education, 21*, Article 62. https://doi.org/10.1186/s41239-024-00496-9
+
+6. Delcker, J., Heil, J., Ifenthaler, D., Seufert, S., & Spirgi, L. (2024). First-year students AI-competence as a predictor for intended and de facto use of AI-tools for supporting learning processes in higher education. *International Journal of Educational Technology in Higher Education, 21*, Article 18. https://doi.org/10.1186/s41239-024-00452-7
+
+7. Paulsen, L., & Lindsay, E. (2024). Learning analytics dashboards are increasingly becoming about learning and not just analytics: A systematic review. *Education and Information Technologies, 29*, 14279-14308. https://doi.org/10.1007/s10639-023-12401-4
+
+8. Stojanov, A., & Daniel, B. K. (2024). A decade of research into the application of big data and analytics in higher education: A systematic review of the literature. *Education and Information Technologies, 29*, 5807-5831. https://doi.org/10.1007/s10639-023-12033-8
+
+9. Tiukhova, E., Vemuri, P., Lopez Flores, N., Islind, A. S., Oskarsdottir, M., Poelmans, S., Baesens, B., & Snoeck, M. (2024). Explainable Learning Analytics: Assessing the stability of student success prediction models by means of explainable AI. *Decision Support Systems, 182*, 114229. https://doi.org/10.1016/j.dss.2024.114229
+
+10. Zhang, Y., et al. (2025). The affordances of Artificial Intelligence (AI) and ethical considerations across the instruction cycle: A systematic review of AI in online higher education. *The Internet and Higher Education, 67*, 101039. https://doi.org/10.1016/j.iheduc.2025.101039
+
+11. Nguyen, A., Ngo, H. N., Hong, Y., Dang, B., & Nguyen, B.-P. T. (2023). Ethical principles for artificial intelligence in education. *Education and Information Technologies, 28*, 4221-4241. https://doi.org/10.1007/s10639-022-11316-w
+
+12. Dwivedi, R., Dave, D., Naik, H., Singhal, S., Omer, R., Patel, P., Qian, B., Wen, Z., Shah, T., Morgan, G., & Ranjan, R. (2023). Explainable AI (XAI): Core ideas, techniques, and solutions. *ACM Computing Surveys, 55*(9), Article 194. https://doi.org/10.1145/3561048
+
+13. Ali, S., Abuhmed, T., El-Sappagh, S., Muhammad, K., Alonso-Moral, J. M., Confalonieri, R., Guidotti, R., Del Ser, J., Diaz-Rodriguez, N., & Herrera, F. (2023). Explainable Artificial Intelligence (XAI): What we know and what is left to attain Trustworthy Artificial Intelligence. *Information Fusion, 99*, 101805. https://doi.org/10.1016/j.inffus.2023.101805
+
+14. Pagano, T. P., Loureiro, R. B., Lisboa, F. V. N., Cruz, G. O. R., Peixoto, R. M., Guimaraes, G. A. S., Santos, L. L., Araujo, M. M., Cruz, M. A. S., Oliveira, E. L. S., Winkler, I., & Nascimento, E. G. S. (2023). Bias and unfairness in machine learning models: A systematic literature review. *Artificial Intelligence Review, 56*, 13547-13624. https://doi.org/10.1007/s10462-023-10502-1
+
+15. Kuzilek, J., Hlosta, M., & Zdrahal, Z. (2017). Open University Learning Analytics dataset. *Scientific Data, 4*, 170171. https://doi.org/10.1038/sdata.2017.171
