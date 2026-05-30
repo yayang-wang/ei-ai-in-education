@@ -1,147 +1,147 @@
-# Two-Month Execution Plan for the EI-Source-Journal Manuscript
+# 两个月 EI 源刊论文执行计划
 
-Project title: Explainable and Fair AI Early Warning System for Online Learning Risk Prediction
+论文暂定题目：面向在线学习风险预测的可解释与公平 AI 早期预警系统
 
-Target: Complete a submission-ready manuscript draft within 8 weeks.
+目标：8 周内完成一篇可投稿初稿。
 
-Core rule: every week must produce a visible artifact. Reading without notes, experiments without tables, and writing without revised sections do not count as completed work.
+核心原则：每周必须产生一个看得见的成果。只读文献但没有笔记、只跑实验但没有表格、只写草稿但不能放进论文，都不算完成。
 
-## Weekly Milestones
+## 一、每周总目标
 
-| Week | Main Goal | Required Outputs | Acceptance Criteria |
+| 周次 | 核心目标 | 必须完成的成果 | 验收标准 |
 |---:|---|---|---|
-| 1 | Literature screening and research positioning | 15-20 screened papers; reference screening table updated; 1-page research gap note | Each paper has topic, method, dataset, contribution, limitation, and relevance score |
-| 2 | Literature review and problem statement | Related Work draft; Introduction outline; final research questions | At least 3 research questions and 3 claimed contributions are written clearly |
-| 3 | Dataset and feature engineering finalization | Dataset description table; feature taxonomy; preprocessing workflow figure draft | Every feature group is justified: behavior, assessment, demographic/context |
-| 4 | Main experiment completion | Model-window comparison table; feature ablation table; fairness audit table; figures | Results are reproducible from the local notebook/script |
-| 5 | Explainability and fairness analysis | SHAP/explanation section; fairness mitigation section; ethical interpretation notes | Results are interpreted, not only reported numerically |
-| 6 | Full manuscript first draft | Complete manuscript v1: Abstract through Conclusion | No placeholder sections; all tables/figures are cited in text |
-| 7 | Revision for source-journal quality | Improved Introduction, Related Work, Method, Results, Discussion | The paper explains novelty beyond a simple prediction model |
-| 8 | Final polishing and submission package | Manuscript v2; cover letter draft; target journal shortlist; response-to-checklist file | Grammar, references, figure captions, and formatting are submission-ready |
+| 第 1 周 | 文献筛选与研究定位 | 筛选 15-20 篇文献；更新文献筛选表；写 1 页研究空白说明 | 每篇文献都要记录主题、方法、数据集、贡献、不足、与本论文的关系 |
+| 第 2 周 | 完成研究框架 | 完成 Related Work 初稿框架；Introduction 提纲；确定研究问题 | 至少写出 3 个研究问题和 3 个创新点 |
+| 第 3 周 | 完成数据与特征工程设计 | 数据集描述表；特征分类表；预处理流程图草稿 | 行为特征、测验特征、人口统计/背景特征都要有明确解释 |
+| 第 4 周 | 完成主要实验 | 模型对比表；特征消融表；公平性审计表；实验图 | 所有结果都能由本地 Notebook 或脚本复现 |
+| 第 5 周 | 完成可解释性、公平性与伦理分析 | SHAP/解释性分析小节；公平性缓解小节；伦理讨论笔记 | 不能只报数字，必须解释这些结果说明了什么 |
+| 第 6 周 | 完成论文第一版全文 | 完成从 Abstract 到 Conclusion 的完整初稿 | 不能有空白章节；所有表格和图片都必须在正文中被引用 |
+| 第 7 周 | 按 EI 源刊质量修改 | 修改 Introduction、Related Work、Method、Results、Discussion | 论文必须体现“不是简单预测模型”，而是可解释、公平、伦理工程化框架 |
+| 第 8 周 | 完成投稿准备 | 第二版论文；投稿信草稿；目标期刊清单；格式检查表 | 语言、参考文献、图表标题、格式基本达到投稿状态 |
 
-## Daily Work Rhythm
+## 二、每天怎么做
 
-| Day Type | Time | Task | Output |
+| 工作类型 | 建议时间 | 具体任务 | 当天产出 |
 |---|---:|---|---|
-| Reading day | 60-90 min | Read 2-3 papers | Add notes to literature matrix |
-| Writing day | 60-120 min | Write or revise one subsection | 300-800 polished words |
-| Experiment day | 60-120 min | Run/verify one experiment block | One table, figure, or result note |
-| Integration day | 60 min | Connect evidence to manuscript text | Updated manuscript section |
-| Review day | 45-60 min | Check logic, citations, and gaps | To-do list for next week |
+| 文献日 | 60-90 分钟 | 阅读 2-3 篇文献 | 更新文献笔记表 |
+| 写作日 | 60-120 分钟 | 写或修改一个小节 | 300-800 字可用正文 |
+| 实验日 | 60-120 分钟 | 跑或复核一个实验模块 | 1 个表格、图片或结果说明 |
+| 整合日 | 60 分钟 | 把实验结果和论文正文连接起来 | 更新论文对应小节 |
+| 复盘日 | 45-60 分钟 | 检查逻辑、引用、缺口 | 下周任务清单 |
 
-Minimum weekly workload: 6-8 focused hours.
+最低投入：每周 6-8 小时。
 
-Recommended weekly workload: 10-12 focused hours.
+推荐投入：每周 10-12 小时。
 
-## Week-by-Week Checklist
+## 三、逐周打卡表
 
-### Week 1: Literature Screening
+### 第 1 周：文献筛选
 
-| Task | Deliverable | Done |
+| 任务 | 交付物 | 完成 |
 |---|---|---|
-| Read the strict working reference list | Notes for 10 papers | [ ] |
-| Check journal quartile in JCR/CAS if access is available | Updated `REFERENCE_SCREENING.md` | [ ] |
-| Mark papers as core, supporting, or discard | Literature matrix | [ ] |
-| Write one paragraph: why ethical explainable early warning matters | Research gap note | [ ] |
+| 阅读严格候选参考文献 | 10 篇文献笔记 | [ ] |
+| 如有学校数据库权限，核验 JCR/中科院分区 | 更新 `REFERENCE_SCREENING.md` | [ ] |
+| 将文献标为核心、辅助、暂不采用 | 文献矩阵 | [ ] |
+| 写一段“为什么可解释、公平的早期预警重要” | 研究空白说明 | [ ] |
 
-### Week 2: Research Framing
+### 第 2 周：确定研究框架
 
-| Task | Deliverable | Done |
+| 任务 | 交付物 | 完成 |
 |---|---|---|
-| Draft Introduction problem background | 600-900 words | [ ] |
-| Draft Related Work structure | 4 subsection headings | [ ] |
-| Define research questions | RQ1-RQ3 | [ ] |
-| Define contributions | 3-4 contribution bullets | [ ] |
+| 写 Introduction 的问题背景 | 600-900 字 | [ ] |
+| 设计 Related Work 结构 | 4 个二级标题 | [ ] |
+| 确定研究问题 | RQ1-RQ3 | [ ] |
+| 确定论文创新点 | 3-4 条贡献 | [ ] |
 
-### Week 3: Data and Method
+### 第 3 周：数据与方法
 
-| Task | Deliverable | Done |
+| 任务 | 交付物 | 完成 |
 |---|---|---|
-| Describe OULAD dataset | Dataset table | [ ] |
-| Finalize feature groups | Feature taxonomy table | [ ] |
-| Explain early warning windows | Method subsection | [ ] |
-| Draw framework workflow | Figure draft | [ ] |
+| 描述 OULAD 数据集 | 数据集说明表 | [ ] |
+| 确定特征分组 | 特征分类表 | [ ] |
+| 解释早期预警时间窗口 | 方法小节 | [ ] |
+| 绘制系统框架流程图 | 图 1 草稿 | [ ] |
 
-### Week 4: Experiments
+### 第 4 周：实验
 
-| Task | Deliverable | Done |
+| 任务 | 交付物 | 完成 |
 |---|---|---|
-| Verify model comparison results | Table: model x time window | [ ] |
-| Verify feature ablation results | Table: feature settings | [ ] |
-| Verify fairness audit results | Table: group fairness metrics | [ ] |
-| Save final plots | 3 publication-style figures | [ ] |
+| 复核模型对比结果 | 模型 × 时间窗口表 | [ ] |
+| 复核特征消融结果 | 特征组合对比表 | [ ] |
+| 复核公平性审计结果 | 群体公平性指标表 | [ ] |
+| 保存最终实验图 | 3 张论文级图片 | [ ] |
 
-### Week 5: Explainability, Fairness, and Ethics
+### 第 5 周：可解释性、公平性与伦理
 
-| Task | Deliverable | Done |
+| 任务 | 交付物 | 完成 |
 |---|---|---|
-| Explain SHAP/global feature importance | Explainability subsection | [ ] |
-| Interpret fairness gaps | Fairness audit subsection | [ ] |
-| Explain threshold mitigation | Fairness mitigation subsection | [ ] |
-| Write human-in-the-loop ethical design | Ethics discussion | [ ] |
+| 解释 SHAP/全局特征重要性 | 可解释性小节 | [ ] |
+| 分析不同群体的公平性差异 | 公平性审计小节 | [ ] |
+| 解释阈值调整如何缓解偏差 | 公平性缓解小节 | [ ] |
+| 写人机协同的伦理设计 | 伦理讨论小节 | [ ] |
 
-### Week 6: Full First Draft
+### 第 6 周：完成全文第一稿
 
-| Task | Deliverable | Done |
+| 任务 | 交付物 | 完成 |
 |---|---|---|
-| Complete Abstract | 180-250 words | [ ] |
-| Complete Introduction | 900-1200 words | [ ] |
-| Complete Related Work | 1200-1800 words | [ ] |
-| Complete Methodology | 1000-1500 words | [ ] |
-| Complete Results and Discussion | 1500-2200 words | [ ] |
-| Complete Conclusion | 300-500 words | [ ] |
+| 完成 Abstract | 180-250 英文词 | [ ] |
+| 完成 Introduction | 900-1200 英文词 | [ ] |
+| 完成 Related Work | 1200-1800 英文词 | [ ] |
+| 完成 Methodology | 1000-1500 英文词 | [ ] |
+| 完成 Results and Discussion | 1500-2200 英文词 | [ ] |
+| 完成 Conclusion | 300-500 英文词 | [ ] |
 
-### Week 7: Quality Upgrade
+### 第 7 周：提升源刊质量
 
-| Task | Deliverable | Done |
+| 任务 | 交付物 | 完成 |
 |---|---|---|
-| Strengthen novelty claim | Revised contributions | [ ] |
-| Add comparison with recent studies | Related Work revision | [ ] |
-| Improve result interpretation | Discussion revision | [ ] |
-| Add limitations and future work | Final discussion subsection | [ ] |
+| 强化创新点表述 | 修改后的贡献段落 | [ ] |
+| 增加与近三年研究的对比 | Related Work 修改版 | [ ] |
+| 加强结果解释 | Discussion 修改版 | [ ] |
+| 增加局限性与未来工作 | 讨论小节 | [ ] |
 
-### Week 8: Submission Preparation
+### 第 8 周：投稿准备
 
-| Task | Deliverable | Done |
+| 任务 | 交付物 | 完成 |
 |---|---|---|
-| Check all references | Final reference list | [ ] |
-| Format tables and figures | Submission-ready tables/figures | [ ] |
-| Prepare cover letter | Cover letter draft | [ ] |
-| Select 2-3 target EI source journals | Journal shortlist | [ ] |
-| Final read-through | Manuscript v2 | [ ] |
+| 检查全部参考文献 | 最终参考文献表 | [ ] |
+| 统一表格和图片格式 | 投稿版图表 | [ ] |
+| 准备 Cover Letter | 投稿信草稿 | [ ] |
+| 选择 2-3 个目标 EI 源刊 | 目标期刊清单 | [ ] |
+| 全文最后通读 | Manuscript v2 | [ ] |
 
-## Paper Structure Target
+## 四、论文章节长度目标
 
-| Section | Target Length | Purpose |
+| 章节 | 目标长度 | 作用 |
 |---|---:|---|
-| Abstract | 180-250 words | State problem, method, data, key results, contribution |
-| Introduction | 900-1200 words | Motivate ethics, explainability, and early warning need |
-| Related Work | 1200-1800 words | Position against AI in education, XAI, fairness, learning analytics |
-| Methodology | 1000-1500 words | Describe framework, data, features, models, fairness metrics |
-| Experimental Setup | 700-1000 words | Explain dataset split, models, metrics, windows |
-| Results | 1200-1800 words | Present model, ablation, explainability, fairness results |
-| Discussion | 800-1200 words | Explain implications for responsible educational AI |
-| Conclusion | 300-500 words | Summarize findings and future work |
+| Abstract | 180-250 英文词 | 说明问题、方法、数据、主要结果、贡献 |
+| Introduction | 900-1200 英文词 | 引出伦理、可解释性、早期预警的重要性 |
+| Related Work | 1200-1800 英文词 | 对比 AI 教育、XAI、公平性、学习分析研究 |
+| Methodology | 1000-1500 英文词 | 说明框架、数据、特征、模型、公平性指标 |
+| Experimental Setup | 700-1000 英文词 | 说明数据划分、模型、评价指标、时间窗口 |
+| Results | 1200-1800 英文词 | 呈现模型、消融、可解释性、公平性结果 |
+| Discussion | 800-1200 英文词 | 讨论对负责任教育 AI 的启示 |
+| Conclusion | 300-500 英文词 | 总结发现和未来工作 |
 
-Target total length: 7000-9000 words.
+全文目标长度：7000-9000 英文词。
 
-## Non-Negotiable Quality Rules
+## 五、不能妥协的质量规则
 
-| Rule | Reason |
+| 规则 | 原因 |
 |---|---|
-| Do not cite non-verified journals as SCI Q1 | Avoid reference-quality risk |
-| Keep OULAD dataset citation even though it is older than three years | It is the required data source citation |
-| Every result table must be explained in text | EI-source-journal papers need interpretation, not only metrics |
-| Every ethical claim must connect to a technical mechanism | The paper must be engineering-oriented |
-| Do not claim the system replaces teachers | The ethical framing must be human-in-the-loop |
-| Keep code, results, and manuscript aligned | Reproducibility strengthens the paper |
+| 未核验分区的期刊不能写成 SCI 一区 | 避免参考文献质量风险 |
+| OULAD 数据集论文虽然不是近三年，也必须引用 | 它是数据来源引用 |
+| 每个结果表都必须在正文中解释 | EI 源刊更看重结果解释和工程意义 |
+| 每个伦理观点都要对应技术机制 | 论文必须体现工程化，而不是泛泛谈伦理 |
+| 不能声称系统替代教师 | 伦理框架必须是人机协同 |
+| 代码、结果、论文必须一致 | 可复现性能增强论文可信度 |
 
-## Weekly Review Questions
+## 六、每周复盘问题
 
-At the end of each week, answer these five questions:
+每周结束时，回答下面 5 个问题：
 
-1. What artifact did I finish this week?
-2. What claim did this artifact support?
-3. What evidence is still weak?
-4. What section of the manuscript changed?
-5. What is the first task for next week?
+1. 本周完成了什么可见成果？
+2. 这个成果支撑论文的哪个观点？
+3. 现在最弱的证据是什么？
+4. 论文哪个章节发生了实质更新？
+5. 下周第一件事是什么？
